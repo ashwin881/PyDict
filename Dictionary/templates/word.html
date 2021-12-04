@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ results.word | title }}{% endblock %}
+
+{% block content %}
+<div>
+    <h3 align="center"><u> {{ results.word | title }} </u></h2>
+    <br>
+    <p>
+        <b>Definition: </b><br/>
+        {% for s in results.meaning %}
+        {{ forloop.counter }}. {{s}}<br/>
+        {% endfor %}
+
+    </p>
+    <br>
+    <p>
+        <b>Synonyms: </b><br/>
+        {% for s in results.thesaurus %}
+        {{ forloop.counter}}.{{s}}<br/>
+        {% endfor %}
+    </p>
+</div>
+{% endblock content %}
